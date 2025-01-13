@@ -1,14 +1,12 @@
-const http = require('http');// Thư viện có sẵn của node.js
+const express = require('express')
+// import express from 'express'; loix
+const app = express()
+const port = 3000
 
-const hostname = 'localhost'; // localhost
-const port = 3000;
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World\nTran Duy Phong');
-});
-
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
